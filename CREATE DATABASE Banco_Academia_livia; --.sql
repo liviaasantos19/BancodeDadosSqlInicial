@@ -43,18 +43,18 @@ SELECT * FROM Cursos;
 SELECT * FROM Alunos;
 
 CREATE TABLE Matriculas(
-    IdMatriculas INT IDENTITY(1,1) PRIMARY KEY, --Identiti para auto incrementar o IdMatricula
+    IdMatriculas INT IDENTITY(1,1) PRIMARY KEY, --Identity para auto incrementar o IdMatricula
     IdAluno INT NOT NULL,
     IdCurso INT NOT NULL,
     DataMatricula DATE NOT NULL CONSTRAINT DF_Matricula_Data DEFAULT (CONVERT(DATE, GETDATE())), -- DEFAULT PARA DEFINIR A DATA ATUAL COMO VALOR PADRÃO
     NotaFinal DECIMAL(4,2) NULL CHECK (NotaFinal BETWEEN 0 AND 10), --CHECK PARA VALIDAR A NOTA FINAL
-    StatusMatricula VARCHAR(20) NOT NULL CONSTRAINT DF_Matriculas_Status DEFAULT  'Ativa', --Default para definir o valor padrão com 'ativa'
+    StatusMatricula VARCHAR(20) NOT NULL CONSTRAINT DF_Matriculas_Status DEFAULT 'Ativa', --Default para definir o valor padrão com 'ativa'
 
     CONSTRAINT UQ_Matriculas_AlunoCurso UNIQUE (IdAluno, IdCurso), -- Unique para não permitir que um aluno se matricule no mesmo curso mais de uma vez
     CONSTRAINT FK_Matriculas_Alunos -- CONSTRAINT para criar a chave estrangeira
     FOREIGN KEY (IdAluno) REFERENCES Alunos(IdAluno ), -- CONSTRAINT para criar a chave estrangeira
     CONSTRAINT FK_Matriculas_Cursos -- CONSTRAINT para criar a chave estrangeira
-    FOREIGN KEY (IdCurso) REFERENCES Cursos(IdCurso) --Para criara a chave estrangeira, referenciando a tabela Cursos
+    FOREIGN KEY (IdCurso) REFERENCES Cursos(IdCurso), --Para criara a chave estrangeira, referenciando a tabela Cursos
 );
 
 SELECT * FROM Professores;

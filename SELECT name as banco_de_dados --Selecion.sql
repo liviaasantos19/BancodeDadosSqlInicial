@@ -69,6 +69,3 @@ FROM Videos AS v -- FROM Videos AS v seleciona a tabela Videos e renomeia como v
 INNER JOIN Estudantes AS e -- INNER JOIN Estudantes AS e seleciona a tabela Estudantes e renomeia como e
 
 ON v.matricula_estudante = e.IdEstudante; --
-
-
-

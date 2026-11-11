@@ -11,7 +11,7 @@ SELECT * FROM Categorias;
 CREATE TABLE Filmes(
     id_Filmes INT PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
-    ano_lancamento SMALLINT NOT NULL, -- SMALLINT Significa um inteiro curto
+    ano_lancamento SMALLINT NOT NULL, -- SMALLINT Significa um inteiro curto--
     duracao INT,
     classificacao_indicativa VARCHAR(10),
     sinopse VARCHAR(500),
